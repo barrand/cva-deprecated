@@ -28,6 +28,8 @@ public class Cva implements ApplicationListener {
 	Array<Rectangle> raindrops;
 	long lastDropTime;
 	
+	
+	
 	public static int STAGE_WIDTH = 1920;
 	public static int STAGE_HEIGHT = 1080;
 
@@ -102,13 +104,13 @@ public class Cva implements ApplicationListener {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		for (Rectangle raindrop : raindrops) {
-			batch.draw(dropImage, raindrop.x, raindrop.y);
+			batch.draw(dropImage, raindrop.x, raindrop.y, 48, 48);
 			if (raindrop.overlaps(bucket)) {
 				dropSound.play();
 				iter.remove();
 			}
 		}
-		batch.draw(bucketImage, bucket.x, bucket.y);
+		batch.draw(bucketImage, bucket.x, bucket.y, 48, 48);
 		batch.end();
 	}
 
