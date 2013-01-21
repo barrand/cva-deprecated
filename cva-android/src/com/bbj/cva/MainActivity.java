@@ -1,4 +1,4 @@
-package com.me.mygdxgame;
+package com.bbj.cva;
 
 import android.os.Bundle;
 
@@ -11,8 +11,10 @@ public class MainActivity extends AndroidApplication {
         super.onCreate(savedInstanceState);
         
         AndroidApplicationConfiguration cfg = new AndroidApplicationConfiguration();
-        cfg.useGL20 = false;
+        cfg.useGL20 = true;
+        cfg.useAccelerometer = false;
+        cfg.useCompass = false;
         
-        initialize(new MyGdxGame(), cfg);
+        initialize(new Cva(), cfg);
     }
 }
