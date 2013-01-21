@@ -27,6 +27,9 @@ public class Cva implements ApplicationListener {
 	SpriteBatch batch;
 	Array<Rectangle> raindrops;
 	long lastDropTime;
+	
+	public static int STAGE_WIDTH = 1920;
+	public static int STAGE_HEIGHT = 1080;
 
 	@Override
 	public void create() {
@@ -40,12 +43,12 @@ public class Cva implements ApplicationListener {
 		rainMusic.play();
 
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 400);
+		camera.setToOrtho(false, STAGE_WIDTH, STAGE_HEIGHT);
 
 		batch = new SpriteBatch();
 
 		bucket = new Rectangle();
-		bucket.x = 800 / 2 - 48 / 2;
+		bucket.x = STAGE_WIDTH / 2 - 48 / 2;
 		bucket.y = 20;
 		bucket.width = 48;
 		bucket.height = 48;
@@ -82,8 +85,8 @@ public class Cva implements ApplicationListener {
 
 		if (bucket.x < 0)
 			bucket.x = 0;
-		if (bucket.x > 800 - 48)
-			bucket.x = 800 - 48;
+		if (bucket.x > STAGE_WIDTH - 48)
+			bucket.x = STAGE_WIDTH - 48;
 
 		if (TimeUtils.nanoTime() - lastDropTime > 1000000000)
 			spawnRaindrop();
@@ -111,8 +114,8 @@ public class Cva implements ApplicationListener {
 
 	private void spawnRaindrop() {
 		Rectangle raindrop = new Rectangle();
-		raindrop.x = MathUtils.random(0, 800 - 48);
-		raindrop.y = 480;
+		raindrop.x = MathUtils.random(0, STAGE_WIDTH - 48);
+		raindrop.y = STAGE_HEIGHT - 200;
 		raindrop.width = 48;
 		raindrop.height = 48;
 		raindrops.add(raindrop);
