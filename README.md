@@ -1,4 +1,0 @@
-cva
-===
-
-Cheerborgs vs Arachnids
