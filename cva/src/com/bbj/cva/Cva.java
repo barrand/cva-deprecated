@@ -5,11 +5,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.tiled.TileAtlas;
+import com.badlogic.gdx.graphics.g2d.tiled.TileMapRenderer;
+import com.badlogic.gdx.graphics.g2d.tiled.TiledLoader;
+import com.badlogic.gdx.graphics.g2d.tiled.TiledMap;
 
 public class Cva implements ApplicationListener {
 	OrthographicCamera camera;
 	SpriteBatch batch;
 	SpriteBatch spriteBatch; // #6
+	TiledMap tiledMap;
+	TileMapRenderer tileMapRenderer;
 
 	public static int STAGE_WIDTH = 1920;
 	public static int STAGE_HEIGHT = 1080;
@@ -19,7 +25,10 @@ public class Cva implements ApplicationListener {
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, STAGE_WIDTH, STAGE_HEIGHT);
-
+		tiledMap = TiledLoader.createMap("maps/thing");
+		TileAtlas tileAtlas = new TileAtlas(tiledMap, Gdx.files.internal("maps"));
+		tileMapRenderer = new TileMapRenderer(tiledMap, tileAtlas, 8, 8);
+		tileMapRenderer.render(camera);
 		batch = new SpriteBatch();
 
 
@@ -48,7 +57,7 @@ public class Cva implements ApplicationListener {
 //		if (Gdx.input.isKeyPressed(Keys.RIGHT))
 //			bucket.x += (int) (200 * Gdx.graphics.getDeltaTime());
 
-
+		tileMapRenderer.render(camera);
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 //		batch.draw(bucketImage, bucket.x, bucket.y, 48, 48);

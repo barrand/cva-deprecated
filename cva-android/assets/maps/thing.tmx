@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><map height="8" orientation="orthogonal" tileheight="135" tilewidth="128" version="1.0" width="15"><properties><property name="blended tiles" value=""/></properties>
+ <tileset firstgid="1" name="grey" tileheight="135" tilewidth="128">
+  <image height="135" source="Images/grey.png" width="128"/>
+ </tileset>
+ <tileset firstgid="2" name="blue" tileheight="135" tilewidth="128">
+  <image height="135" source="Images/blue.png" width="128"/>
+ </tileset>
+ <tileset firstgid="3" name="green" tileheight="135" tilewidth="128">
+  <image height="135" source="Images/grass.jpg" width="128"/>
+ </tileset>
+ <layer height="8" name="Tile Layer 1" width="15">
+  <data compression="zlib" encoding="base64">
+   eJxjYmBgYBoAzIiEmYnAjDjwSNNLKgYA70wA8Q==
+  </data>
+ </layer>
+</map>
